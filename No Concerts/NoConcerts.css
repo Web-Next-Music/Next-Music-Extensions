@@ -1,6 +1,8 @@
 [data-intersection-property-id="concerts_personal"],
 [data-intersection-property-id="ConcertsTop"],
 [id="concerts"],
-.Donations_root__xo2BC {
+.Donations_root__xo2BC,
+.BarBelow_root__KFexT,
+.PageHeaderArtist_label__rXyrB:nth-child(2) {
     display: none;
 }
