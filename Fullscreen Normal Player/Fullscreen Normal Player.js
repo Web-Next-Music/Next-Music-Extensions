@@ -17,7 +17,10 @@ setInterval(() => {
     const playerBar = document.querySelector('section.PlayerBar_root__cXUnU');
 
     if (playerBar) {
-        const playerColor = getComputedStyle(playerBar).getPropertyValue('--player-average-color-background').trim();
+        let playerColor = getComputedStyle(playerBar).getPropertyValue('--player-average-color-background').trim();
+        if (!playerColor) {
+            playerColor = '#141414';
+        }
 
         if (fullscreenModal && !isFullscreenActive) {
             isFullscreenActive = true;
