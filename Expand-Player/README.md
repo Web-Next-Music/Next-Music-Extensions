@@ -1,2 +1,2 @@
-# Expand Player 1.0.0
+# Аддон Expand Player 1.0.0
 Расширяет панель плеера
