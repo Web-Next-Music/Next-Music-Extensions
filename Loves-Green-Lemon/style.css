@@ -43,12 +43,10 @@
 
 /* Main Page */
 [class*="Content_main"]:has([class*="MainPage_root"]) {
-    background: linear-gradient(
-        180deg,
-        var(--I-B) 0px,
-        var(--I-B) 10px,
-        var(--main-color) 100%
-    );
+    background: linear-gradient(180deg,
+            var(--I-B) 0px,
+            var(--I-B) 10px,
+            var(--main-color) 100%);
 }
 
 [class*="VibeBlock_root"] {
@@ -80,16 +78,14 @@
 }
 
 /* Полноэкранный плеер */
-[class*="FullscreenPlayerDesktopContent_root"] {
+[class*="FullscreenPlayerDesktop_important"] {
     border: 0;
-    background: linear-gradient(
-        -180deg,
-        var(--I-B) 40%,
-        var(--II-B) 40%,
-        var(--II-B) 60%,
-        var(--III-B) 60%,
-        var(--III-B) 100%
-    );
+    background: linear-gradient(-180deg,
+            var(--I-B) 40%,
+            var(--II-B) 40%,
+            var(--II-B) 60%,
+            var(--III-B) 60%,
+            var(--III-B) 100%);
 }
 
 /* Logo Color */
@@ -105,7 +101,7 @@
 }
 
 /* User Block */
-[class*="UserProfile_plusLink"] > div {
+[class*="UserProfile_plusLink"]>div {
     background: linear-gradient(-90deg, var(--I-B), var(--II-B), var(--III-B));
 }
 
@@ -152,17 +148,17 @@
 }
 
 /* dev-panel */
-[class*="DevPanel_root"] > button,
+[class*="DevPanel_root"]>button,
 [class*="DevPanel_panel"] {
     background-color: var(--bg-color);
 }
 
-[class*="DevPanel_root"] > button:hover,
-[class*="DevPanel_panel"] > button:hover {
+[class*="DevPanel_root"]>button:hover,
+[class*="DevPanel_panel"]>button:hover {
     background-color: var(--main-color);
 }
 
-[class*="DevPanel_panel"] > button {
+[class*="DevPanel_panel"]>button {
     background-color: var(--bg-color);
 }
 
