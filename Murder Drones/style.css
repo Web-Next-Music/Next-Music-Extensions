@@ -1,0 +1,182 @@
+:root {
+    --bg-color: #181224;
+    --main-color: #734a8b;
+    --basic-color: #181224;
+    --font-color: #e0e0e3;
+    --light-font-color: #a88fb3;
+    --player-color: #314a7e;
+    --just-black: #121212;
+    --I-B: #d60270;
+    --II-B: #9b4f96;
+    --III-B: #0038a8;
+}
+
+.ym-dark-theme {
+    --ym-background-color-primary-enabled-content: var(--main-color);
+    --ym-background-color-primary-enabled-basic: var(--bg-color);
+    --ym-background-color-primary-enabled-player: var(--just-black);
+    --ym-controls-color-primary-default-hovered: var(--main-color);
+    --ym-controls-color-primary-default-enabled: var(--I-B);
+    --ym-controls-color-primary-outline-selected_stroke: var(--I-B);
+    --ym-controls-color-primary-text-enabled: var(--light-font-color);
+    --ym-controls-color-primary-text-disabled: var(--light-font-color);
+    --ym-controls-color-primary-text-enabled_variant: var(--font-color);
+    --ym-background-color-primary-enabled-popover: var(--main-color);
+    --ym-controls-color-primary-on_outline-enabled: var(--font-color);
+    --ym-controls-color-secondary-on_outline-enabled: var(--basic-color);
+    --ym-controls-color-primary-on_default-enabled: var(--font-color);
+    --ym-controls-color-primary-outline-enabled: var(--II-B);
+    --ym-controls-color-secondary-outline-selected: var(--basic-color);
+    --ym-controls-color-primary-text-vibe_icon: var(--font-color);
+    --ym-controls-color-secondary-on_default-enabled: var(--font-color);
+    --ym-controls-color-secondary-on_default-hovered: var(--font-color);
+    --text-hovered-color: var(--font-color);
+    --neuromusic-button-color: var(--font-color);
+    --ym-controls-color-secondary-text-enabled_variant: var(--font-color);
+    --ym-controls-color-secondary-text-enabled: var(--light-font-color);
+    --ym-slider-color-primary-enabled: var(--I-B);
+    --ym-controls-color-secondary-card-enabled: var(--bg-color);
+    --vibe-button-text-color: var(--light-font-color);
+    --ym-shadow-xl: var(--basic-color);
+    --ym-shadow-s: var(--basic-color);
+}
+
+/* Main Page */
+[class*="Content_main"]:has([class*="MainPage_root"]) {
+    background: linear-gradient(180deg,
+            var(--I-B) 0px,
+            var(--I-B) 10px,
+            var(--main-color) 100%);
+}
+
+[class*="VibeBlock_root"] {
+    height: 250px !important;
+    min-height: 250px !important;
+}
+
+[class*="PlayButton_root"] {
+    color: var(--font-color);
+}
+
+[class*="VibeBlock_settingsButton"] * {
+    color: var(--font-color);
+}
+
+/* Fullscreen */
+[class*="SyncLyrics_content"],
+[class*="PlayQueue_root"] {
+    --player-average-color-background: 0;
+}
+
+/* Плеер */
+[class*="PlayerBar_root"] {
+    background-color: var(--player-color) !important;
+}
+
+[class*="BaseSonataControlsDesktop_playButtonIcon"] {
+    color: var(--font-color);
+}
+
+/* Полноэкранный плеер */
+[class*="FullscreenPlayerDesktop_important"] {
+    border: 0;
+    background: linear-gradient(-180deg,
+            var(--I-B) 40%,
+            var(--II-B) 40%,
+            var(--II-B) 60%,
+            var(--III-B) 60%,
+            var(--III-B) 100%);
+}
+
+/* Logo Color */
+[class*="NavbarDesktop_logoWrapper"] * {
+    color: var(--I-B);
+}
+
+/* Градиенты вверху страниц */
+[class*="ArtistPage_averageColorBackground"],
+[class*="PlaylistPage_averageColorBackground"],
+[class*="CommonAlbumPage_averageColorBackground"] {
+    --average-color-background: var(--I-B) !important;
+}
+
+/* User Block */
+[class*="UserProfile_plusLink"]>div {
+    background: linear-gradient(-90deg, var(--I-B), var(--II-B), var(--III-B));
+}
+
+.UserID-Avatar_plus:after {
+    background: #f00;
+    z-index: -1;
+    background: linear-gradient(0, var(--I-B), var(--II-B), var(--III-B));
+    border-radius: 50%;
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+}
+
+/* Замена текста on "Favorites" */
+[class*="CollectionPage_description"] {
+    color: transparent;
+    position: relative;
+}
+
+[class*="CollectionPage_description"]::before {
+    content: "All people deserve";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--font-color);
+    width: auto;
+}
+
+[class*="CollectionPage_collectionColor"] {
+    position: relative;
+    visibility: hidden;
+}
+
+[class*="CollectionPage_collectionColor"]:before {
+    position: absolute;
+    visibility: visible;
+    content: "love";
+    background: linear-gradient(90deg, var(--I-B), var(--II-B), var(--III-B));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    left: 12px;
+    font-weight: 800;
+}
+
+/* dev-panel */
+[class*="DevPanel_root"]>button,
+[class*="DevPanel_panel"] {
+    background-color: var(--bg-color);
+}
+
+[class*="DevPanel_root"]>button:hover,
+[class*="DevPanel_panel"]>button:hover {
+    background-color: var(--main-color);
+}
+
+[class*="DevPanel_panel"]>button {
+    background-color: var(--bg-color);
+}
+
+/* Blocks background */
+[class*="NewRelease_card"],
+[data-test-id="VIBE_DISCOVERY_ITEM"] {
+    background: var(--bg-color);
+}
+
+/* Slider background */
+[class*="ChangeTimecode_slider"] {
+    --slider-thumb-box-shadow-color: #0000;
+}
+
+/* Only display: none; */
+[class*="TitleBar_pulseText"],
+[class*="VibeAnimation_enter_done"],
+[class*="VibeButton_image"],
+[class*="NavbarDesktop_subTitle_withCursorPointer"] {
+    display: none;
+}
