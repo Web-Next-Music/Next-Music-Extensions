@@ -1,171 +1,50 @@
+/*
+==> Confession of the Golden Diramix <==
+https://x.com/Diram1x/status/1979370937087627445
+*/
+
 :root {
-    --bg-color: #181224;
-    --main-color: #734a8b;
-    --basic-color: #181224;
-    --font-color: #e0e0e3;
-    --light-font-color: #a88fb3;
-    --player-color: #314a7e;
-    --just-black: #121212;
-    --I-B: #d60270;
-    --II-B: #9b4f96;
-    --III-B: #0038a8;
+    --background: #000500;
+    --block-color: #091200;
+    --font-color: #fdfc88;
+    --font-inactive-color: #316210;
+    --buttons-hover: #26471d;
 }
 
 .ym-dark-theme {
-    --ym-background-color-primary-enabled-content: var(--main-color);
-    --ym-background-color-primary-enabled-basic: var(--bg-color);
-    --ym-background-color-primary-enabled-player: var(--just-black);
-    --ym-controls-color-primary-default-hovered: var(--main-color);
-    --ym-controls-color-primary-default-enabled: var(--I-B);
-    --ym-controls-color-primary-outline-selected_stroke: var(--I-B);
-    --ym-controls-color-primary-text-enabled: var(--light-font-color);
-    --ym-controls-color-primary-text-disabled: var(--light-font-color);
+    --ym-background-color-primary-enabled-basic: var(--background);
+    --ym-background-color-primary-enabled-content: var(--block-color);
+    --ym-controls-color-primary-text-enabled: var(--font-inactive-color);
     --ym-controls-color-primary-text-enabled_variant: var(--font-color);
-    --ym-background-color-primary-enabled-popover: var(--main-color);
-    --ym-controls-color-primary-on_outline-enabled: var(--font-color);
-    --ym-controls-color-secondary-on_outline-enabled: var(--basic-color);
-    --ym-controls-color-primary-on_default-enabled: var(--font-color);
-    --ym-controls-color-primary-outline-enabled: var(--II-B);
-    --ym-controls-color-secondary-outline-selected: var(--basic-color);
-    --ym-controls-color-primary-text-vibe_icon: var(--font-color);
-    --ym-controls-color-secondary-on_default-enabled: var(--font-color);
+    --ym-controls-color-primary-default-enabled: var(--font-color);
+    --ym-background-color-primary-enabled-popover: var(--block-color);
     --ym-controls-color-secondary-on_default-hovered: var(--font-color);
-    --text-hovered-color: var(--font-color);
-    --neuromusic-button-color: var(--font-color);
+    --ym-controls-color-secondary-text-enabled: var(--font-color);
+    --ym-controls-color-secondary-on_default-enabled: var(--font-color);
+    --ym-controls-color-primary-on_outline-enabled: var(--font-color);
+    --ym-controls-color-secondary-outline-selected: var(--block-color);
+    --ym-controls-color-primary-outline-selected_stroke: var(--font-color);
+    --ym-controls-color-primary-outline-enabled: var(--block-color);
+    --ym-background-color-secondary-enabled-blur: #333218;
+    --ym-slider-color-primary-enabled: var(--font-color);
+    --ym-controls-color-secondary-on_outline-enabled: #a5a33a;
     --ym-controls-color-secondary-text-enabled_variant: var(--font-color);
-    --ym-controls-color-secondary-text-enabled: var(--light-font-color);
-    --ym-slider-color-primary-enabled: var(--I-B);
-    --ym-controls-color-secondary-card-enabled: var(--bg-color);
-    --vibe-button-text-color: var(--light-font-color);
-    --ym-shadow-xl: var(--basic-color);
-    --ym-shadow-s: var(--basic-color);
 }
 
-/* Main Page */
-[class*="Content_main"]:has([class*="MainPage_root"]) {
-    background: linear-gradient(180deg,
-            var(--I-B) 0px,
-            var(--I-B) 10px,
-            var(--main-color) 100%);
+* {
+    --ym-background-color-primary-enabled-basic: 0;
 }
 
-[class*="VibeBlock_root"] {
-    height: 250px !important;
-    min-height: 250px !important;
-}
-
-[class*="PlayButton_root"] {
-    color: var(--font-color);
-}
-
-[class*="VibeBlock_settingsButton"] * {
-    color: var(--font-color);
-}
-
-/* Fullscreen */
-[class*="SyncLyrics_content"],
-[class*="PlayQueue_root"] {
-    --player-average-color-background: 0;
-}
-
-/* Плеер */
-[class*="PlayerBar_root"] {
-    background-color: var(--player-color) !important;
-}
-
-[class*="BaseSonataControlsDesktop_playButtonIcon"] {
-    color: var(--font-color);
-}
-
-/* Полноэкранный плеер */
-[class*="FullscreenPlayerDesktop_important"] {
-    border: 0;
-    background: linear-gradient(-180deg,
-            var(--I-B) 40%,
-            var(--II-B) 40%,
-            var(--II-B) 60%,
-            var(--III-B) 60%,
-            var(--III-B) 100%);
-}
-
-/* Logo Color */
-[class*="NavbarDesktop_logoWrapper"] * {
-    color: var(--I-B);
-}
-
-/* Градиенты вверху страниц */
-[class*="ArtistPage_averageColorBackground"],
-[class*="PlaylistPage_averageColorBackground"],
-[class*="CommonAlbumPage_averageColorBackground"] {
-    --average-color-background: var(--I-B) !important;
-}
-
-/* User Block */
-[class*="UserProfile_plusLink"]>div {
-    background: linear-gradient(-90deg, var(--I-B), var(--II-B), var(--III-B));
-}
-
-.UserID-Avatar_plus:after {
-    background: #f00;
-    z-index: -1;
-    background: linear-gradient(0, var(--I-B), var(--II-B), var(--III-B));
-    border-radius: 50%;
-    width: calc(100% - 3px);
-    height: calc(100% - 3px);
-}
-
-/* Замена текста on "Favorites" */
-[class*="CollectionPage_description"] {
-    color: transparent;
-    position: relative;
-}
-
-[class*="CollectionPage_description"]::before {
-    content: "All people deserve";
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--font-color);
-    width: auto;
-}
-
-[class*="CollectionPage_collectionColor"] {
-    position: relative;
+/* ВЫКУСИ! */
+[class*="TitleBar_pulseText"] {
     visibility: hidden;
 }
 
-[class*="CollectionPage_collectionColor"]:before {
-    position: absolute;
+[class*="TitleBar_pulseText"]:after {
     visibility: visible;
-    content: "love";
-    background: linear-gradient(90deg, var(--I-B), var(--II-B), var(--III-B));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    left: 12px;
-    font-weight: 800;
-}
-
-/* dev-panel */
-[class*="DevPanel_root"]>button,
-[class*="DevPanel_panel"] {
-    background-color: var(--bg-color);
-}
-
-[class*="DevPanel_root"]>button:hover,
-[class*="DevPanel_panel"]>button:hover {
-    background-color: var(--main-color);
-}
-
-[class*="DevPanel_panel"]>button {
-    background-color: var(--bg-color);
-}
-
-/* Blocks background */
-[class*="NewRelease_card"],
-[data-test-id="VIBE_DISCOVERY_ITEM"] {
-    background: var(--bg-color);
+    content: "BITE ME!";
+    color: var(--font-color);
+    font-weight: 600;
 }
 
 /* Slider background */
@@ -173,10 +52,110 @@
     --slider-thumb-box-shadow-color: #0000;
 }
 
+/* Meta font colors */
+[class*="Meta_title"] {
+    --text-hovered-color: var(--font-color);
+}
+
+[class*="Meta_artistCaption"] {
+    --text-enabled-color: var(--font-inactive-color);
+}
+
+/* Player */
+[class*="PlayerBar_root"] {
+    background-color: var(--block-color) !important;
+}
+
+[class*="BaseSonataControlsDesktop_playButtonIcon"] {
+    color: var(--font-color);
+}
+
+/* Logo Color */
+[class*="NavbarDesktop_logo"] {
+    color: var(--font-color);
+}
+
+/* Vibe block */
+[class*="VibeBlock_root"] {
+    position: relative;
+    background-color: #00f;
+    margin: 20px 0 20px 20px;
+    border-radius: 10px;
+    background: url("http://127.0.0.1:2007/assets/vibe.jpg?name=Murder Drones")
+        no-repeat center;
+    background-size: cover;
+    max-height: 550px;
+}
+
+[class*="VibeBlock_root"]::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: calc(10% - 50px);
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+    background: url("http://127.0.0.1:2007/assets/uzi.png?name=Murder Drones")
+        no-repeat right center / contain;
+    background-size: contain;
+}
+
+@media (max-width: 1100px) {
+    [data-test-id="VIBE_BLOCK"]::after {
+        display: none;
+    }
+}
+
+[class*="VibeBlock_pauseButton"],
+[class*="VibeBlock_pauseButton"]:hover {
+    background: #251427;
+    box-shadow: 0 0 20px #a95ccc !important;
+    color: #a95ccc;
+    fill: #000;
+    padding: 5px 20px;
+    border-radius: 50px;
+    --ym-controls-color-primary-text-vibe_icon: #a95ccc;
+}
+
+[class*="VibeBlock_playButton"],
+[class*="VibeBlock_playButton"]:hover {
+    background: #251427;
+    box-shadow: 0 0 20px #fdfc88 !important;
+    color: #fdfc88;
+    fill: #000;
+    padding: 5px 20px;
+    border-radius: 50px;
+    --ym-controls-color-primary-text-vibe_icon: #fdfc88;
+}
+
+[class*="VibeBlock_settingsButton"] > button,
+[class*="VibeBlock_settingsButton"] > div {
+    background-color: var(--block-color);
+}
+
+[class*="VibeBlock_settingsButton"] > button:hover {
+    background-color: var(--buttons-hover);
+}
+
+[class*="VibeBlock_controls"] {
+    z-index: 1;
+}
+
+/* Fullscreen background */
+[class*="FullscreenPlayerDesktop_important"] {
+    background-color: var(--background) !important;
+    background: url("http://127.0.0.1:2007/assets/lyrics.jpg?name=Murder Drones")
+        no-repeat center;
+    background-size: cover;
+}
+
 /* Only display: none; */
-[class*="TitleBar_pulseText"],
+[class*="UserProfile_plusLink"],
 [class*="VibeAnimation_enter_done"],
-[class*="VibeButton_image"],
+[class*="SyncLyrics_content"]:after,
+[class*="SyncLyrics_content"]:before,
+[class*="PlayQueue_root"]:after,
+[class*="PlayQueue_root"]:before,
 [class*="NavbarDesktop_subTitle_withCursorPointer"] {
     display: none;
 }
