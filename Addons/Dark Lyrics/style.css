@@ -1,0 +1,26 @@
+[class*="FullscreenPlayerDesktop_important"] {
+    border-width: 0;
+}
+
+[class*="FullscreenPlayerDesktopContent_root"]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: 1;
+    background: linear-gradient(
+        -30deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+[class*="FullscreenPlayerDesktopContent_syncLyricsContent"]:before,
+[class*="FullscreenPlayerDesktopContent_syncLyricsContent"]:after,
+[class*="PlayQueue_root"]:before,
+[class*="PlayQueue_root"]:after {
+    display: none;
+}
