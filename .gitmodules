@@ -1,3 +1,6 @@
 [submodule "Themes/Murder-Drones"]
 	path = Themes/Murder-Drones
 	url = https://github.com/Diramix/Murder-Drones-Theme.git
+[submodule "Themes/Colorful"]
+	path = Themes/Colorful
+	url = https://github.com/Diramix/Colorful
