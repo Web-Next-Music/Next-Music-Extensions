@@ -1,0 +1,27 @@
+/* Стили для таймера Яндекс Музыки */
+
+#yandex-music-timer {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#yandex-music-timer:hover {
+    transform: scale(1.05);
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#yandex-music-timer {
+    animation: fadeIn 0.5s ease;
+}

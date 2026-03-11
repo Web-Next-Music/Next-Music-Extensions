@@ -1,0 +1,95 @@
+{
+    "sections": [
+        {
+            "title": "Настройки отображения",
+            "items": [
+                {
+                    "id": "showTimer",
+                    "name": "Показывать время",
+                    "description": "Отображать время прослушивания на странице",
+                    "type": "button",
+                    "bool": true,
+                    "defaultParameter": true
+                },
+                {
+                    "id": "timerPosition",
+                    "name": "Позиция времени",
+                    "description": "Выберите расположение времени на экране",
+                    "type": "selector",
+                    "selected": 1,
+                    "options": {
+                        "1": {
+                            "event": "topCenter",
+                            "name": "Вверху по центру"
+                        },
+                        "2": {
+                            "event": "topLeft",
+                            "name": "Верхний левый угол"
+                        },
+                        "3": {
+                            "event": "bottomLeft",
+                            "name": "Нижний левый угол"
+                        }
+                    },
+                    "defaultParameter": 1
+                },
+                {
+                    "id": "timerColor",
+                    "name": "Статический цвет",
+                    "description": "Использовать статический цвет вместо динамического",
+                    "type": "button",
+                    "bool": false,
+                    "defaultParameter": false
+                },
+                {
+                    "id": "customColor",
+                    "name": "Выбор цвета",
+                    "description": "Цвет таймера (работает только при включенном статическом цвете)",
+                    "type": "color",
+                    "input": "#ffffff",
+                    "defaultParameter": "#ffffff"
+                },
+                {
+                    "id": "resetButton",
+                    "name": "Сбросить статистику",
+                    "description": "Сбросить накопленное время прослушивания",
+                    "type": "button",
+                    "bool": false,
+                    "defaultParameter": false
+                }
+            ]
+        },
+        {
+            "title": "Дополнительно",
+            "items": [
+                {
+                    "id": "fontSize",
+                    "name": "Размер шрифта",
+                    "description": "Размер шрифта таймера (в пикселях)",
+                    "type": "slider",
+                    "min": 12,
+                    "max": 32,
+                    "step": 2,
+                    "value": 12,
+                    "defaultParameter": 12
+                },
+                {
+                    "id": "showSeconds",
+                    "name": "Показывать секунды",
+                    "description": "Отображать секунды в таймере",
+                    "type": "button",
+                    "bool": true,
+                    "defaultParameter": true
+                },
+                {
+                    "id": "showIcon",
+                    "name": "Показывать иконку",
+                    "description": "Отображать иконку 🎵 перед временем",
+                    "type": "button",
+                    "bool": false,
+                    "defaultParameter": true
+                }
+            ]
+        }
+    ]
+}
