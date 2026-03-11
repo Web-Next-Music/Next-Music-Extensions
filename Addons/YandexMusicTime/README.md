@@ -25,3 +25,5 @@
 - **Размер шрифта** - регулировка размера от 12 до 32 пикселей
 - **Показывать секунды** - отображение секунд
 - **Показывать иконку** - отображение иконки 🎵 перед временем
+![screenshot](https://github.com/user-attachments/assets/faf2f342-58e4-445d-bb0e-4a887227a2e7)
+![screenshot](https://github.com/user-attachments/assets/d37e4542-3030-4735-9f67-c1b5a662ad43)
