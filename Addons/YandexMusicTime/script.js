@@ -274,9 +274,6 @@ function checkPlaybackState() {
         return href?.includes("pause_filled_l");
     });
 
-    console.log(playButton);
-    console.log(pauseButton);
-
     if (pauseButton) {
         musicTimer.start();
     } else if (playButton) {
