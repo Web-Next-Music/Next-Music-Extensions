@@ -1,4 +1,4 @@
-# ПОРТ АДДОНА [YandexMusicTime](https://discord.com/channels/1227552882744754267/1480978694104158400) С DISCORD СЕРВЕРА [PulseSync](https://discord.gg/qy42uGTzRy)
+# ПОРТ АДДОНА [YandexMusicTime v1.0.1](https://discord.com/channels/1227552882744754267/1480978694104158400) С DISCORD СЕРВЕРА [PulseSync](https://discord.gg/qy42uGTzRy)
 # *АВТОР ОРИГИНАЛА*: ДобрыйИгрок 🤝
 ---
 ## Обратите внимание: это порт, и он может работать не так, как задумал автор оригинала.
