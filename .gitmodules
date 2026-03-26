@@ -4,3 +4,6 @@
 [submodule "Themes/Colorful"]
 	path = Themes/Colorful
 	url = https://github.com/Diramix/Colorful
+[submodule "Themes/Vocaloid Miku!"]
+	path = Themes/Vocaloid Miku!
+	url = https://github.com/Diramix/Vocaloid-Miku
