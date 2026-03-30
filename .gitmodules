@@ -1,9 +1,17 @@
+# Themes
 [submodule "Themes/Murder Drones"]
 	path = Themes/Murder Drones
 	url = https://github.com/Diramix/Murder-Drones-Theme/
+
 [submodule "Themes/Colorful"]
-	path = Themes/Colorful
-	url = https://github.com/Diramix/Colorful
+    path = Themes/Colorful
+    url = https://github.com/Diramix/Colorful
+
 [submodule "Themes/Vocaloid Miku!"]
-	path = Themes/Vocaloid Miku!
-	url = https://github.com/Diramix/Vocaloid-Miku
+    path = Themes/Vocaloid Miku!
+    url = https://github.com/Diramix/Vocaloid-Miku
+
+# Addons
+[submodule "Addons/FckCensor Next"]
+    path = Addons/FckCensor Next
+    url = https://github.com/Web-Next-Music/FckCensor-Next/
