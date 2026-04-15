@@ -10,3 +10,6 @@
 [submodule "Addons/FckCensor Next"]
 	path = Addons/FckCensor Next
 	url = https://github.com/Web-Next-Music/FckCensor-Next/
+[submodule "Themes/li.compact"]
+	path = Themes/li.compact
+	url = https://github.com/AnimeLore/li.compact/
