@@ -13,3 +13,6 @@
 [submodule "Themes/li.compact"]
 	path = Themes/li.compact
 	url = https://github.com/AnimeLore/li.compact/
+[submodule "Addons/speeds"]
+	path = Addons/speeds
+	url = https://github.com/Diramix/speeds
