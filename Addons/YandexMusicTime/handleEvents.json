@@ -34,6 +34,48 @@
                     "defaultParameter": 1
                 },
                 {
+                    "id": "timerStatType",
+                    "name": "Что показывать в таймере",
+                    "description": "Выберите, какую статистику отображать на странице",
+                    "type": "selector",
+                    "selected": 1,
+                    "options": {
+                        "1": {
+                            "event": "total",
+                            "name": "Прослушано всего"
+                        },
+                        "2": {
+                            "event": "year",
+                            "name": "Прослушано за год"
+                        },
+                        "3": {
+                            "event": "month",
+                            "name": "Прослушано за месяц"
+                        },
+                        "4": {
+                            "event": "week",
+                            "name": "Прослушано за неделю"
+                        },
+                        "5": {
+                            "event": "day",
+                            "name": "Прослушано за день"
+                        },
+                        "6": {
+                            "event": "currentSession",
+                            "name": "Прослушано в текущей сессии"
+                        }
+                    },
+                    "defaultParameter": 1
+                },
+                {
+                    "id": "showTimerLabel",
+                    "name": "Показывать подпись периода",
+                    "description": "Добавляет подпись к таймеру, например: За месяц: 02ч 14м 10с",
+                    "type": "button",
+                    "bool": true,
+                    "defaultParameter": true
+                },
+                {
                     "id": "timerColor",
                     "name": "Статический цвет",
                     "description": "Использовать статический цвет вместо динамического",
@@ -44,18 +86,10 @@
                 {
                     "id": "customColor",
                     "name": "Выбор цвета",
-                    "description": "Цвет таймера (работает только при включенном статическом цвете)",
+                    "description": "Цвет таймера, работает только при включенном статическом цвете",
                     "type": "color",
                     "input": "#ffffff",
                     "defaultParameter": "#ffffff"
-                },
-                {
-                    "id": "resetButton",
-                    "name": "Сбросить статистику",
-                    "description": "Сбросить накопленное время прослушивания",
-                    "type": "button",
-                    "bool": false,
-                    "defaultParameter": false
                 }
             ]
         },
@@ -65,7 +99,7 @@
                 {
                     "id": "fontSize",
                     "name": "Размер шрифта",
-                    "description": "Размер шрифта таймера (в пикселях)",
+                    "description": "Размер шрифта таймера в пикселях",
                     "type": "slider",
                     "min": 12,
                     "max": 32,
@@ -87,6 +121,14 @@
                     "description": "Отображать иконку 🎵 перед временем",
                     "type": "button",
                     "bool": false,
+                    "defaultParameter": true
+                },
+                {
+                    "id": "showNavbarButton",
+                    "name": "Показывать иконку статистики в навбаре",
+                    "description": "Показывать или скрывать кнопку «Статистика» в боковом меню",
+                    "type": "button",
+                    "bool": true,
                     "defaultParameter": true
                 }
             ]

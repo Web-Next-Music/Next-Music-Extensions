@@ -1,27 +1,844 @@
 /* Стили для таймера Яндекс Музыки */
 
 #yandex-music-timer {
+    position: fixed;
+    color: var(--ym-timer-color, var(--ym-controls-color-primary-text-enabled_variant, #ffffff));
+    padding: 10px 15px;
+    font-size: var(--ym-timer-font-size, 12px);
+    font-family: 'YS Text', Arial, sans-serif;
+    z-index: 10000;
+    pointer-events: none;
+    user-select: none;
+    max-height: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
     transition: all 0.3s ease;
     font-weight: 500;
     letter-spacing: 0.5px;
+    animation: fadeIn 0.5s ease;
 }
 
 #yandex-music-timer:hover {
     transform: scale(1.05);
 }
 
+#yandex-music-timer.ym-timer--top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#yandex-music-timer.ym-timer--top-center:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+#yandex-music-timer.ym-timer--top-left {
+    top: 0;
+    left: 0;
+}
+
+#yandex-music-timer.ym-timer--bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
 /* Анимация появления */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-#yandex-music-timer {
-    animation: fadeIn 0.5s ease;
+/* Стили для кнопки статистики в сайдбаре */
+
+#ym-stats-button {
+    cursor: pointer;
+}
+
+#ym-stats-button:hover {
+    color: var(--ym-controls-color-primary-text-enabled_variant);
+}
+
+#ym-stats-button svg {
+    transition: color 0.2s ease;
+}
+
+/* Скрытие текста статистики при свёрнутом сайдбаре */
+
+#ym-stats-button.ym-sidebar-collapsed .nxMXCBiVfgH4oxds3f2y,
+#ym-stats-button.uw57VJ37U4rAAHDs0zJR .nxMXCBiVfgH4oxds3f2y,
+li.e1KYSvMXXv0FD4s_yCuw #ym-stats-button .nxMXCBiVfgH4oxds3f2y {
+    margin-inline-start: 0 !important;
+    max-width: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}
+
+#ym-stats-button.ym-sidebar-collapsed .nxMXCBiVfgH4oxds3f2y span,
+#ym-stats-button.uw57VJ37U4rAAHDs0zJR .nxMXCBiVfgH4oxds3f2y span,
+li.e1KYSvMXXv0FD4s_yCuw #ym-stats-button .nxMXCBiVfgH4oxds3f2y span {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Tooltip для кнопки статистики в свёрнутом сайдбаре */
+/* Стилизован максимально близко к дефолтной плашке Яндекс Музыки */
+
+#ym-stats-tooltip {
+    position: fixed;
+    z-index: 10011;
+    left: 0;
+    top: 0;
+    transform: translateY(-50%);
+    width: max-content;
+    height: 32px;
+    min-height: 32px;
+    padding: 0 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    background: #242424;
+    color: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: none;
+    font-family: var(--ym-font-text), 'YS Text', Arial, sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: var(--ym-font-weight-medium, 500);
+    letter-spacing: normal;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.08s ease,
+        visibility 0.08s ease;
+}
+
+#ym-stats-tooltip.ym-stats-tooltip--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Когда сайдбар открыт — текст должен быть виден */
+
+#ym-stats-button[data-ym-collapsed="false"] .nxMXCBiVfgH4oxds3f2y {
+    margin-inline-start: var(--ym-spacer-size-m) !important;
+    max-width: 31.25rem !important;
+    opacity: 1 !important;
+}
+
+#ym-stats-button[data-ym-collapsed="false"] .nxMXCBiVfgH4oxds3f2y span {
+    opacity: 1 !important;
+    visibility: visible !important;
+    max-width: none !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Общие элементы UI статистики */
+
+.ym-modal[hidden],
+.ym-toast-container[hidden] {
+    display: none !important;
+}
+
+.ym-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.58);
+    backdrop-filter: blur(10px);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'YS Text', Arial, sans-serif;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.ym-modal--weekly {
+    background: rgba(0, 0, 0, 0.62);
+    z-index: 10002;
+}
+
+.ym-modal--confirm {
+    background: rgba(0, 0, 0, 0.62);
+    z-index: 10003;
+}
+
+.ym-modal__box {
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.09), transparent 34%),
+        var(--ym-background-color-primary-enabled-content, #1e1e1e);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 26px;
+    max-width: 720px;
+    width: min(720px, 96vw);
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+    box-shadow: 0 18px 70px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+}
+
+.ym-modal__box--weekly {
+    background:
+        radial-gradient(circle at top left, rgba(124, 247, 255, 0.12), transparent 36%),
+        var(--ym-background-color-primary-enabled-content, #1e1e1e);
+    max-width: 680px;
+    width: min(680px, 96vw);
+}
+
+.ym-modal__box--confirm {
+    background:
+        radial-gradient(circle at top left, rgba(211, 47, 47, 0.18), transparent 38%),
+        var(--ym-background-color-primary-enabled-content, #1e1e1e);
+    border-radius: 18px;
+    padding: 24px;
+    width: min(440px, 94vw);
+    max-width: none;
+}
+
+.ym-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 18px;
+}
+
+.ym-modal__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ym-modal__title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ym-modal__title-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.ym-modal__title-icon svg {
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.ym-modal__title-icon--stats {
+    background: linear-gradient(135deg, #ffdf5d 0%, #ff9f43 55%, #ff6f61 100%);
+}
+
+.ym-modal__title-icon--week {
+    background: linear-gradient(135deg, #7cf7ff, #2f9bff);
+}
+
+.ym-modal__title {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.25;
+    font-weight: 750;
+}
+
+.ym-modal__title--confirm {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.ym-modal__subtitle,
+.ym-modal__text {
+    font-size: 13px;
+    opacity: 0.58;
+    line-height: 1.35;
+}
+
+.ym-modal__text {
+    font-size: 14px;
+    line-height: 1.45;
+    opacity: 0.72;
+    margin-bottom: 20px;
+}
+
+.ym-modal__close {
+    width: 34px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: background 0.15s ease;
+}
+
+.ym-modal__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ym-stats-list,
+.ym-week-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    width: 100%;
+}
+
+.ym-week-list {
+    gap: 10px;
+}
+
+.ym-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.ym-modal__actions--confirm {
+    margin-top: 0;
+}
+
+.ym-ui-button {
+    padding: 9px 15px;
+    background: rgba(255, 255, 255, 0.085);
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    width: auto;
+    min-width: 132px;
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.ym-ui-button:hover {
+    background: rgba(255, 255, 255, 0.13);
+    transform: translateY(-1px);
+}
+
+.ym-ui-button:disabled {
+    cursor: default;
+    opacity: 0.72;
+    transform: none;
+}
+
+.ym-ui-button--wide {
+    min-width: 190px;
+}
+
+.ym-ui-button--danger {
+    min-width: 104px;
+    background: rgba(211, 47, 47, 0.9);
+}
+
+.ym-ui-button--danger:hover {
+    background: rgba(230, 57, 57, 0.95);
+}
+
+.ym-ui-button--ghost {
+    background: rgba(255, 255, 255, 0.065);
+}
+
+.ym-ui-button--ghost:hover {
+    background: rgba(255, 255, 255, 0.105);
+}
+
+/* Карточки общей статистики */
+
+.ym-stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    width: 100%;
+    min-height: 58px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.035)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px 18px;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ym-stats-card__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.ym-stats-card__accent {
+    width: 8px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.ym-accent-total {
+    background: linear-gradient(180deg, #ffdf5d, #ff9f43);
+}
+
+.ym-accent-year {
+    background: linear-gradient(180deg, #8fd3ff, #4f8dff);
+}
+
+.ym-accent-month {
+    background: linear-gradient(180deg, #b8ff8f, #43d17a);
+}
+
+.ym-accent-week {
+    background: linear-gradient(180deg, #7cf7ff, #2f9bff);
+}
+
+.ym-accent-day {
+    background: linear-gradient(180deg, #ffe08a, #ff6f91);
+}
+
+.ym-accent-current {
+    background: linear-gradient(180deg, #d7a4ff, #925cff);
+}
+
+.ym-accent-previous {
+    background: linear-gradient(180deg, #ffb3c7, #ff5f8f);
+}
+
+.ym-stats-card__label {
+    font-size: 14px;
+    line-height: 1.35;
+    opacity: 0.86;
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+    white-space: normal;
+}
+
+.ym-stats-card__value,
+.ym-week-day__value,
+.ym-week-total__value {
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 750;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.2px;
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 7px 10px;
+}
+
+/* Статистика за неделю */
+
+.ym-week-day {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-height: 72px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.072),
+            rgba(255, 255, 255, 0.032)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 13px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+}
+
+.ym-week-day--today {
+    border-color: rgba(255, 223, 93, 0.22);
+}
+
+.ym-week-day__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+}
+
+.ym-week-day__left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.ym-week-day__accent {
+    width: 8px;
+    height: 30px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #7cf7ff, #2f9bff);
+    flex-shrink: 0;
+}
+
+.ym-week-day--today .ym-week-day__accent {
+    background: linear-gradient(180deg, #ffdf5d, #ff9f43);
+}
+
+.ym-week-day__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.ym-week-day__title {
+    font-size: 14px;
+    line-height: 1.25;
+    opacity: 0.9;
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+}
+
+.ym-week-day__date {
+    font-size: 12px;
+    line-height: 1.25;
+    opacity: 0.52;
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+}
+
+.ym-week-day__value {
+    font-size: 15px;
+}
+
+.ym-week-progress {
+    width: 100%;
+    height: 8px;
+    border: none;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.22);
+}
+
+.ym-week-progress::-webkit-progress-bar {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+}
+
+.ym-week-progress::-webkit-progress-value {
+    background: linear-gradient(180deg, #7cf7ff, #2f9bff);
+    border-radius: 999px;
+}
+
+.ym-week-day--today .ym-week-progress::-webkit-progress-value {
+    background: linear-gradient(180deg, #ffdf5d, #ff9f43);
+}
+
+.ym-week-progress::-moz-progress-bar {
+    background: linear-gradient(180deg, #7cf7ff, #2f9bff);
+    border-radius: 999px;
+}
+
+.ym-week-day--today .ym-week-progress::-moz-progress-bar {
+    background: linear-gradient(180deg, #ffdf5d, #ff9f43);
+}
+
+.ym-week-total {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.ym-week-total__label {
+    font-size: 14px;
+    opacity: 0.82;
+}
+
+/* Toast */
+
+.ym-toast-container {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10010;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    pointer-events: none;
+    font-family: 'YS Text', Arial, sans-serif;
+}
+
+.ym-toast {
+    max-width: min(360px, calc(100vw - 48px));
+    padding: 12px 14px;
+    border-radius: 13px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.13),
+            rgba(255, 255, 255, 0.07)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--ym-controls-color-primary-text-enabled, #fff);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+}
+
+.ym-toast--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.ym-toast--success {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(67, 209, 122, 0.24),
+            rgba(255, 255, 255, 0.075)
+        );
+    border-color: rgba(67, 209, 122, 0.35);
+}
+
+.ym-toast--error,
+.ym-toast--danger {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(211, 47, 47, 0.28),
+            rgba(255, 255, 255, 0.075)
+        );
+    border-color: rgba(211, 47, 47, 0.38);
+}
+
+/* Fallback textarea для копирования */
+
+.ym-clipboard-fallback {
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Светлая тема Яндекс Музыки */
+
+html[data-ym-addon-theme="light"] #ym-stats-tooltip {
+    background: #f2f2f2;
+    color: #171717;
+    border-color: rgba(0, 0, 0, 0.13);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal {
+    background: rgba(0, 0, 0, 0.28);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal--weekly,
+html[data-ym-addon-theme="light"] .ym-modal--confirm {
+    background: rgba(0, 0, 0, 0.32);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__box {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(0, 0, 0, 0.035),
+            transparent 34%
+        ),
+        var(--ym-background-color-primary-enabled-content, #ffffff);
+    border-color: rgba(0, 0, 0, 0.09);
+    color: var(--ym-controls-color-primary-text-enabled_variant, #111111);
+    box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__box--weekly {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(47, 155, 255, 0.10),
+            transparent 36%
+        ),
+        var(--ym-background-color-primary-enabled-content, #ffffff);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__box--confirm {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(211, 47, 47, 0.10),
+            transparent 38%
+        ),
+        var(--ym-background-color-primary-enabled-content, #ffffff);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__title,
+html[data-ym-addon-theme="light"] .ym-modal__subtitle,
+html[data-ym-addon-theme="light"] .ym-modal__text,
+html[data-ym-addon-theme="light"] .ym-stats-card__label,
+html[data-ym-addon-theme="light"] .ym-stats-card__value,
+html[data-ym-addon-theme="light"] .ym-week-day__title,
+html[data-ym-addon-theme="light"] .ym-week-day__date,
+html[data-ym-addon-theme="light"] .ym-week-day__value,
+html[data-ym-addon-theme="light"] .ym-week-total__label,
+html[data-ym-addon-theme="light"] .ym-week-total__value {
+    color: var(--ym-controls-color-primary-text-enabled_variant, #111111);
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__close {
+    background: rgba(0, 0, 0, 0.045);
+    border-color: rgba(0, 0, 0, 0.09);
+    color: #111111;
+}
+
+html[data-ym-addon-theme="light"] .ym-modal__close:hover {
+    background: rgba(0, 0, 0, 0.085);
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button {
+    background: rgba(0, 0, 0, 0.055);
+    color: var(--ym-controls-color-primary-text-enabled_variant, #111111);
+    border-color: rgba(0, 0, 0, 0.10);
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button:hover {
+    background: rgba(0, 0, 0, 0.095);
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button--ghost {
+    background: rgba(0, 0, 0, 0.045);
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button--ghost:hover {
+    background: rgba(0, 0, 0, 0.085);
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button--danger {
+    background: rgba(211, 47, 47, 0.90);
+    color: #050505;
+    border-color: rgba(143, 17, 17, 0.26);
+    text-shadow: none;
+}
+
+html[data-ym-addon-theme="light"] .ym-ui-button--danger:hover {
+    background: rgba(230, 57, 57, 0.95);
+    color: #050505;
+}
+
+html[data-ym-addon-theme="light"] .ym-stats-card,
+html[data-ym-addon-theme="light"] .ym-week-day {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.045),
+            rgba(0, 0, 0, 0.018)
+        );
+    border-color: rgba(0, 0, 0, 0.085);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+html[data-ym-addon-theme="light"] .ym-stats-card__value,
+html[data-ym-addon-theme="light"] .ym-week-day__value,
+html[data-ym-addon-theme="light"] .ym-week-total__value {
+    background: rgba(0, 0, 0, 0.045);
+    border-color: rgba(0, 0, 0, 0.075);
+}
+
+html[data-ym-addon-theme="light"] .ym-week-day--today {
+    border-color: rgba(190, 132, 0, 0.28);
+}
+
+html[data-ym-addon-theme="light"] .ym-week-progress {
+    background: rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+html[data-ym-addon-theme="light"] .ym-week-progress::-webkit-progress-bar {
+    background: rgba(0, 0, 0, 0.075);
+}
+
+html[data-ym-addon-theme="light"] .ym-week-total {
+    background: rgba(0, 0, 0, 0.045);
+    border-color: rgba(0, 0, 0, 0.085);
+}
+
+html[data-ym-addon-theme="light"] .ym-toast {
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(0, 0, 0, 0.10);
+    color: #111111;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+}
+
+html[data-ym-addon-theme="light"] .ym-toast--success {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(67, 209, 122, 0.24),
+            rgba(255, 255, 255, 0.94)
+        );
+    border-color: rgba(35, 145, 78, 0.30);
+}
+
+html[data-ym-addon-theme="light"] .ym-toast--error,
+html[data-ym-addon-theme="light"] .ym-toast--danger {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(211, 47, 47, 0.22),
+            rgba(255, 255, 255, 0.94)
+        );
+    border-color: rgba(170, 26, 26, 0.30);
 }
