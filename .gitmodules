@@ -16,3 +16,6 @@
 [submodule "Addons/speeds"]
 	path = Addons/speeds
 	url = https://github.com/Diramix/speeds
+[submodule "Addons/CustomFonts"]
+	path = Addons/CustomFonts
+	url = https://github.com/dieughh/CustomFonts
