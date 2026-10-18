@@ -19,3 +19,18 @@
 [submodule "Addons/CustomFonts"]
 	path = Addons/CustomFonts
 	url = https://github.com/dieughh/CustomFonts
+[submodule "Themes/Night of Knights"]
+	path = Themes/Night of Knights
+	url = https://github.com/absolute2007/night-of-knights-theme
+[submodule "Themes/CYBER GLITCH"]
+	path = Themes/CYBER GLITCH
+	url = https://github.com/absolute2007/cyber-glitch-theme
+[submodule "Themes/EVERYTHING WILL FREEZE"]
+	path = Themes/EVERYTHING WILL FREEZE
+	url = https://github.com/absolute2007/everything-will-freeze-theme
+[submodule "Themes/Kokou no Sousei"]
+	path = Themes/Kokou no Sousei
+	url = https://github.com/absolute2007/kokou-no-sousei-theme
+[submodule "Addons/Discord Lyrics Status"]
+	path = Addons/Discord Lyrics Status
+	url = https://github.com/absolute2007/discord-lyrics-status
