@@ -1,137 +1,159 @@
 {
-    "sections": [
+  "sections": [
+    {
+      "title": "Настройки отображения",
+      "items": [
         {
-            "title": "Настройки отображения",
-            "items": [
-                {
-                    "id": "showTimer",
-                    "name": "Показывать время",
-                    "description": "Отображать время прослушивания на странице",
-                    "type": "button",
-                    "bool": true,
-                    "defaultParameter": true
-                },
-                {
-                    "id": "timerPosition",
-                    "name": "Позиция времени",
-                    "description": "Выберите расположение времени на экране",
-                    "type": "selector",
-                    "selected": 1,
-                    "options": {
-                        "1": {
-                            "event": "topCenter",
-                            "name": "Вверху по центру"
-                        },
-                        "2": {
-                            "event": "topLeft",
-                            "name": "Верхний левый угол"
-                        },
-                        "3": {
-                            "event": "bottomLeft",
-                            "name": "Нижний левый угол"
-                        }
-                    },
-                    "defaultParameter": 1
-                },
-                {
-                    "id": "timerStatType",
-                    "name": "Что показывать в таймере",
-                    "description": "Выберите, какую статистику отображать на странице",
-                    "type": "selector",
-                    "selected": 1,
-                    "options": {
-                        "1": {
-                            "event": "total",
-                            "name": "Прослушано всего"
-                        },
-                        "2": {
-                            "event": "year",
-                            "name": "Прослушано за год"
-                        },
-                        "3": {
-                            "event": "month",
-                            "name": "Прослушано за месяц"
-                        },
-                        "4": {
-                            "event": "week",
-                            "name": "Прослушано за неделю"
-                        },
-                        "5": {
-                            "event": "day",
-                            "name": "Прослушано за день"
-                        },
-                        "6": {
-                            "event": "currentSession",
-                            "name": "Прослушано в текущей сессии"
-                        }
-                    },
-                    "defaultParameter": 1
-                },
-                {
-                    "id": "showTimerLabel",
-                    "name": "Показывать подпись периода",
-                    "description": "Добавляет подпись к таймеру, например: За месяц: 02ч 14м 10с",
-                    "type": "button",
-                    "bool": true,
-                    "defaultParameter": true
-                },
-                {
-                    "id": "timerColor",
-                    "name": "Статический цвет",
-                    "description": "Использовать статический цвет вместо динамического",
-                    "type": "button",
-                    "bool": false,
-                    "defaultParameter": false
-                },
-                {
-                    "id": "customColor",
-                    "name": "Выбор цвета",
-                    "description": "Цвет таймера, работает только при включенном статическом цвете",
-                    "type": "color",
-                    "input": "#ffffff",
-                    "defaultParameter": "#ffffff"
-                }
-            ]
+          "id": "showTimer",
+          "name": "Показывать время",
+          "description": "Отображать время прослушивания на странице",
+          "type": "button",
+          "defaultParameter": true,
+          "bool": true
         },
         {
-            "title": "Дополнительно",
-            "items": [
-                {
-                    "id": "fontSize",
-                    "name": "Размер шрифта",
-                    "description": "Размер шрифта таймера в пикселях",
-                    "type": "slider",
-                    "min": 12,
-                    "max": 32,
-                    "step": 2,
-                    "value": 12,
-                    "defaultParameter": 12
-                },
-                {
-                    "id": "showSeconds",
-                    "name": "Показывать секунды",
-                    "description": "Отображать секунды в таймере",
-                    "type": "button",
-                    "bool": true,
-                    "defaultParameter": true
-                },
-                {
-                    "id": "showIcon",
-                    "name": "Показывать иконку",
-                    "description": "Отображать иконку 🎵 перед временем",
-                    "type": "button",
-                    "bool": false,
-                    "defaultParameter": true
-                },
-                {
-                    "id": "showNavbarButton",
-                    "name": "Показывать иконку статистики в навбаре",
-                    "description": "Показывать или скрывать кнопку «Статистика» в боковом меню",
-                    "type": "button",
-                    "bool": true,
-                    "defaultParameter": true
-                }
-            ]
+          "id": "showStreak",
+          "name": "Показывать стрик",
+          "description": "Серия ежедневных входов рядом с таймером. Пропуск дня начинает новую серию. Скрытие огонька не сбрасывает прогресс.",
+          "type": "button",
+          "defaultParameter": true,
+          "bool": true
+        },
+        {
+          "id": "streakFormat",
+          "name": "Формат отображения стрика",
+          "description": "Текст с количеством дней подряд или огонёк с уровнем серии.",
+          "type": "selector",
+          "options": {
+            "1": {
+              "event": "1",
+              "name": "Число"
+            },
+            "2": {
+              "event": "2",
+              "name": "Огонёк"
+            }
+          },
+          "defaultParameter": 1,
+          "selected": 1
+        },
+        {
+          "id": "timerPosition",
+          "name": "Позиция времени",
+          "description": "Выберите расположение времени на экране",
+          "type": "selector",
+          "options": {
+            "1": {
+              "event": "1",
+              "name": "Вверху по центру"
+            },
+            "2": {
+              "event": "2",
+              "name": "Верхний левый угол"
+            }
+          },
+          "defaultParameter": 1,
+          "selected": 1
+        },
+        {
+          "id": "timerStatType",
+          "name": "Что показывать в таймере",
+          "description": "Выберите, какую статистику отображать на странице",
+          "type": "selector",
+          "options": {
+            "1": {
+              "event": "1",
+              "name": "Прослушано всего"
+            },
+            "2": {
+              "event": "2",
+              "name": "Прослушано за год"
+            },
+            "3": {
+              "event": "3",
+              "name": "Прослушано за месяц"
+            },
+            "4": {
+              "event": "4",
+              "name": "Прослушано за неделю"
+            },
+            "5": {
+              "event": "5",
+              "name": "Прослушано за день"
+            },
+            "6": {
+              "event": "6",
+              "name": "Прослушано в текущей сессии"
+            }
+          },
+          "defaultParameter": 1,
+          "selected": 1
+        },
+        {
+          "id": "showTimerLabel",
+          "name": "Показывать подпись",
+          "description": "Добавляет подпись к таймеру (например «За месяц:») и текст «Дней подряд:» к стрику",
+          "type": "button",
+          "defaultParameter": true,
+          "bool": true
+        },
+        {
+          "id": "timerColor",
+          "name": "Статический цвет",
+          "description": "Использовать статический цвет вместо динамического",
+          "type": "button",
+          "defaultParameter": false,
+          "bool": false
+        },
+        {
+          "id": "customColor",
+          "name": "Выбор цвета",
+          "description": "Цвет таймера, работает только при включенном статическом цвете",
+          "type": "color",
+          "defaultParameter": "#ffffff",
+          "input": "#ffffff"
         }
-    ]
+      ]
+    },
+    {
+      "title": "Дополнительно",
+      "items": [
+        {
+          "id": "fontSize",
+          "name": "Размер шрифта",
+          "description": "Размер шрифта таймера в пикселях",
+          "type": "slider",
+          "min": 12,
+          "max": 32,
+          "step": 2,
+          "defaultParameter": 12,
+          "value": 12
+        },
+        {
+          "id": "showSeconds",
+          "name": "Показывать секунды",
+          "description": "Отображать секунды в таймере",
+          "type": "button",
+          "defaultParameter": true,
+          "bool": true
+        },
+        {
+          "id": "showIcon",
+          "name": "Показывать иконку",
+          "description": "Отображать иконку 🎵 перед временем",
+          "type": "button",
+          "defaultParameter": false,
+          "bool": false
+        },
+        {
+          "id": "showNavbarButton",
+          "name": "Показывать иконку статистики в навбаре",
+          "description": "Показывать или скрывать кнопку «Статистика» в боковом меню",
+          "type": "button",
+          "defaultParameter": true,
+          "bool": true
+        }
+      ]
+    }
+  ]
 }
